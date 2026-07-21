@@ -1,14 +1,17 @@
 using System;
+using System.ComponentModel;
 using UnityEngine;
 
 public class ButtonScriptManuel : MonoBehaviour
 {
-    int first = 1;
+    [SerializeField]
+    [Header("Button Settings")]
+    [Tooltip("The type of button. Valid types: test, quit, changeScene")]
+    private string type = "test";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        first += 4;
-        print(first);
+        
     }
 
     // Update is called once per frame
@@ -17,10 +20,21 @@ public class ButtonScriptManuel : MonoBehaviour
         
     }
 
-    public void RunButtonScript()
+    public void ButtonPressed()
     {
-        first += 4;
-        print(first);        
+        if (type == "test")
+        {
+            print("test button!");
+        }
+        if (type == "quit")
+        {
+            Application.Quit();
+        }
+        if (type == "changeScene")
+        {
+            Application.Quit();
+        }
+
     }
     
 }
