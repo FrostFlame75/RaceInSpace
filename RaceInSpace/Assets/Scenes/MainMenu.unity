@@ -309,6 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
   type: quit
+  value: null
 --- !u!114 &627322023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,7 +417,7 @@ GameObject:
   - component: {fileID: 639747586}
   - component: {fileID: 639747585}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -839,7 +840,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Race in Space v0.0.1
+  m_text: 'Race in Space v0.0.2
 
 '
   m_isRightToLeft: 0
@@ -973,7 +974,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d239e14d6df7a1946a74cd0b65c8c456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
-  type: test
+  type: changeScene
+  value: MainScene
 --- !u!114 &1456442733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,7 +1165,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1591387120
 RectTransform:
