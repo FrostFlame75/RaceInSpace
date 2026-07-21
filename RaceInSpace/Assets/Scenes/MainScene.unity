@@ -510,6 +510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eaf435241faddb4581d7853de152d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  vertInvert: 0
+  horizInvert: 0
+  turnSens: 1.5
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
