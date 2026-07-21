@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonScriptManuel : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class ButtonScriptManuel : MonoBehaviour
     [Header("Button Settings")]
     [Tooltip("The type of button. Valid types: test, quit, changeScene")]
     private string type = "test";
+
+    [SerializeField]
+    [Tooltip("The value / data to pass into the button. Only necessary for some types.")]
+    private string value = "null";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,7 +37,7 @@ public class ButtonScriptManuel : MonoBehaviour
         }
         if (type == "changeScene")
         {
-            Application.Quit();
+            SceneManager.LoadScene(value);
         }
 
     }
