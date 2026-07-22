@@ -126,3 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d15ab493655cb4a97dce1a920e2e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  hasBeenHit: 0
+  prev: {fileID: 0}
+  unclaimed: {fileID: 2100000, guid: 5ef9dd43edbb2144bb0d51cd8c5a4389, type: 2}
+  nextUp: {fileID: 2100000, guid: e0c764489a1849c43a25ce299c05e2e7, type: 2}
+  claimed: {fileID: 2100000, guid: 246b8833f260e3d458a36a08f7652a79, type: 2}
