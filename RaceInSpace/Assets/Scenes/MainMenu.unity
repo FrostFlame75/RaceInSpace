@@ -171,8 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d239e14d6df7a1946a74cd0b65c8c456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
-  type: quit
-  value: null
+  type: changeScene
+  value: OptionsMenu
+  masterMixer: {fileID: 0}
 --- !u!114 &424177006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,6 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
   type: quit
   value: null
+  masterMixer: {fileID: 0}
 --- !u!114 &627322023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,6 +1125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
   type: changeScene
   value: MainScene
+  masterMixer: {fileID: 0}
 --- !u!114 &1456442733
 MonoBehaviour:
   m_ObjectHideFlags: 0
