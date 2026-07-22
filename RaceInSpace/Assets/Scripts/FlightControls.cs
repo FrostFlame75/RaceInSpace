@@ -39,7 +39,7 @@ public class FlightControls : MonoBehaviour
             Vector3 rotation = Vector3.zero;
         if (horizInvert) { steerValue.x *= -1; }
         if (vertInvert) { steerValue.y *= -1; }
-        rotation = new Vector3(steerValue.y * pitchSens, steerValue.x * rollSens * -1, steerValue.z * yawSens);
+        rotation = new Vector3(steerValue.y * pitchSens, steerValue.x * rollSens * -1, steerValue.z * yawSens * -1);
         
 
         
