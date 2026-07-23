@@ -12,6 +12,8 @@ public class VisualTimer : MonoBehaviour
     [SerializeField]
     private float amount = 1;
 
+    [SerializeField]
+    private bool running = true;
     TMP_Text canvasText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -19,8 +21,13 @@ public class VisualTimer : MonoBehaviour
         canvasText = GetComponent<TMP_Text>();
         print("ryn");
     }
-    void Start()
+    void StartTimer()
     {
+        running = true;
+    }
+    void StopTimer()
+    {
+        running = false;
     }
 
     // Update is called once per frame
@@ -42,6 +49,6 @@ public class VisualTimer : MonoBehaviour
             visualTimeSec = "0" + visualTimeSec + ".0";
         }
         canvasText.text = visualTimeMin + ":" + visualTimeSec;    
-        timeLeft += Time.deltaTime * amount;
+        if (running) timeLeft += Time.deltaTime * amount;
     }
 }
