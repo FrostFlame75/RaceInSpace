@@ -25,7 +25,15 @@ public class FlightControls : MonoBehaviour
     {
         moveAction = InputSystem.actions.FindAction("Move");
         steerAction = InputSystem.actions.FindAction("Steer");
+        if (steerAction == null) {
+            steerAction = InputSystem.actions.FindAction("Move");
+            moveAction = InputSystem.actions.FindAction("Jump");
+
+        }
+
         brakeAction = InputSystem.actions.FindAction("Brake");
+        if (brakeAction == null) steerAction = InputSystem.actions.FindAction("Sprint");
+
         rb = gameObject.GetComponent<Rigidbody>();
     }
 
