@@ -869,6 +869,8 @@ MonoBehaviour:
   yawSens: 60
   accelScale: 0.4
   drag: 0.15
+  passiveDragRight: 0.05
+  passiveDragUp: 0.075
 --- !u!54 &653050457
 Rigidbody:
   m_ObjectHideFlags: 0
