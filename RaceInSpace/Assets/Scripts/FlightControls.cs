@@ -13,6 +13,8 @@ public class FlightControls : MonoBehaviour
     [SerializeField] float yawSens;
     [SerializeField] float accelScale;
     [SerializeField] float drag;
+    [SerializeField] float passiveDragRight;
+    [SerializeField] float passiveDragUp;
     Rigidbody rb;
     InputAction steerAction;
     InputAction moveAction;
@@ -45,7 +47,11 @@ public class FlightControls : MonoBehaviour
         
         gameObject.transform.Rotate(rotation * Time.deltaTime);
         rb.AddForce(transform.up * accel);
-        if (brakeBool) { rb.AddForce(rb.linearVelocity * -1 * drag); }
+         
+        if (brakeBool) { rb.AddForce(rb.linearVelocity * -1 * drag); } else { 
+            rb.AddForce(Vector3.Dot(rb.linearVelocity, transform.right) * transform.right * passiveDragRight * -1);
+            rb.AddForce(Vector3.Dot(rb.linearVelocity, transform.forward) * transform.forward * passiveDragUp * -1);
+        }
         if (rb.linearVelocity.magnitude < 0.001)
         {
             rb.linearVelocity = Vector3.zero;
