@@ -31,7 +31,5 @@ public class ProgressBar : MonoBehaviour
     {
         myBar.sizeDelta = new Vector2(Timer.timeLeft/Timer.totalTime*barSize, Bar.sizeDelta.y);
         myBar.anchoredPosition = new Vector2((barSize-myBar.sizeDelta.x)*-0.5f,0);
-        print("hello:");
-        print(Timer.timeLeft/Timer.totalTime);
     }
 }

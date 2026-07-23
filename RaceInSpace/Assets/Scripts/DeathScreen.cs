@@ -1,3 +1,4 @@
+using System;
 using System.Xml;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -23,7 +24,6 @@ public class DeathScreen : MonoBehaviour
     void Start()
     {
        myImage = this.GetComponent<Image>();
-       Show();
     }  
 
     // Update is called once per frame
