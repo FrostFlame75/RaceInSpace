@@ -1,4 +1,6 @@
+using System;
 using System.Xml;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +9,15 @@ public class ProgressBar : MonoBehaviour
     RectTransform Bar;
 
     RectTransform myBar;
+
+    [SerializeField]
+    VisualTimer Timer;
+    [SerializeField]
+    private float barSize = 200;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-
+        
     }
 
     void Start()
@@ -22,6 +29,9 @@ public class ProgressBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myBar.sizeDelta.Set(Bar.sizeDelta.x - Time.deltaTime*10, Bar.sizeDelta.y - Time.deltaTime*10);
+        myBar.sizeDelta = new Vector2(Timer.timeLeft/Timer.totalTime*barSize, Bar.sizeDelta.y);
+        myBar.anchoredPosition = new Vector2((barSize-myBar.sizeDelta.x)*-0.5f,0);
+        print("hello:");
+        print(Timer.timeLeft/Timer.totalTime);
     }
 }

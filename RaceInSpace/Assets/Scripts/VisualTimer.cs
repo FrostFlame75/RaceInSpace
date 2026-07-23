@@ -2,24 +2,34 @@ using System;
 using System.Linq;
 using TMPro;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class VisualTimer : MonoBehaviour
-{
-    [SerializeField]
-    private float timeLeft = 140;
+{   
+    public float timeLeft = 140;
     [SerializeField]
     private float amount = 1;
 
     [SerializeField]
     private bool running = true;
     TMP_Text canvasText;
+
+    public float totalTime;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         canvasText = GetComponent<TMP_Text>();
+        
         print("ryn");
+        totalTime = timeLeft;
+        
+    }
+    void Start()
+    {
+        
     }
     void StartTimer()
     {
