@@ -1114,7 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
   type: changeScene
-  value: MainScene
+  value: Level 1
   masterMixer: {fileID: 0}
 --- !u!114 &1456442733
 MonoBehaviour:
