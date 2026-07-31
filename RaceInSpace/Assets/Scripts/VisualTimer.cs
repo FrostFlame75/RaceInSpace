@@ -13,10 +13,11 @@ public class VisualTimer : MonoBehaviour
     private float amount = 1;
 
     [SerializeField]
-    private bool running = true;
+    private bool running = false;
     TMP_Text canvasText;
 
     public float totalTime;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -24,18 +25,25 @@ public class VisualTimer : MonoBehaviour
         canvasText = GetComponent<TMP_Text>();
         
         print("ryn");
-        totalTime = timeLeft;
+        if (amount < 0)
+        {
+            totalTime = timeLeft;
+        }
+        else
+        {
+            totalTime = -1;
+        }
         
     }
     void Start()
     {
         
     }
-    void StartTimer()
+    public void StartTimer()
     {
         running = true;
     }
-    void StopTimer()
+    public void StopTimer()
     {
         running = false;
     }
@@ -43,22 +51,32 @@ public class VisualTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeLeft <= 0 && amount < 0){ canvasText.text = "0:00.0"; return; }
-        string visualTimeMin = math.floor(timeLeft/60).ToString();
-        string visualTimeSec = ((math.round(timeLeft*10)/10)%60).ToString();
-        if (visualTimeSec.Length == 3)
+        //if (timeLeft <= 0 && amount < 0){ canvasText.text = "0:00.0"; return; }
+        string visualTimeSecOnes;
+        if (timeLeft > 0) { visualTimeSecOnes = (math.floor(timeLeft) % 60).ToString(); } 
+        else if (timeLeft < -1)  { visualTimeSecOnes = (Math.Ceiling(timeLeft) % 60).ToString(); } 
+        else { visualTimeSecOnes = "-" + (Math.Ceiling(timeLeft) % 60).ToString(); }
+            string visualTimeSecDeci = Math.Abs((math.round(timeLeft * 1000) % 60000) % 1000).ToString();
+        if (visualTimeSecOnes.Length == 1)
         {
-            visualTimeSec = "0" + visualTimeSec;
+            visualTimeSecOnes = "0" + visualTimeSecOnes;
         }
-        if (visualTimeSec.Length == 2)
+        switch (visualTimeSecDeci.Length)
         {
-            visualTimeSec = visualTimeSec + ".0";
+            case 0:
+                visualTimeSecDeci = visualTimeSecDeci + "0";
+                goto case 1;
+            case 1:
+                visualTimeSecDeci = visualTimeSecDeci + "0";
+                goto case 2;
+            case 2:
+                visualTimeSecDeci = visualTimeSecDeci + "0";
+                goto default;
+            default:
+                break;
+
         }
-        if (visualTimeSec.Length == 1)
-        {
-            visualTimeSec = "0" + visualTimeSec + ".0";
-        }
-        canvasText.text = visualTimeMin + ":" + visualTimeSec;    
+        canvasText.text = visualTimeSecOnes + "." + visualTimeSecDeci;
         if (running) timeLeft += Time.deltaTime * amount;
     }
 }

@@ -22,6 +22,10 @@ public class ProgressBar : MonoBehaviour
 
     void Start()
     {
+        if (Timer.totalTime == -1)
+        {
+            Destroy(this);
+        }
         Bar = GetComponentInParent<RectTransform>();
         myBar = GetComponent<RectTransform>();
     }
